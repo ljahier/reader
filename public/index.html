@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rss Reader</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <button onclick="displayNotification()">Click me</button>
+    <div>
+        <div>
+            <div class="left">
+                <img src="#" alt="Icon de la source">
+            </div>
+            <div class="right">
+                <div class="header">
+                    <h1><a href="https://www.githubstatus.com/incidents/rk5rhrklkdk3">Incident on 2021-01-19 11:36
+                            UTC</a></h1>
+                    <div class="left">
+                        <span class="from">Github</span>
+                    </div>
+                    <div class="right">
+                        <script>
+
+                            let time = parseFloat(Date.now() - Date.parse('Tue, 19 Jan 2021 14:51:40 +0000') / 60 / 60 / 1000, 2).toFixed(2)
+                            document.write(time < 1 ? time + 'minutes ago' : time + 'hours ago')
+                        </script>
+                    </div>
+                </div>
+                <div class="pubDate">
+                    <h3>Tue, 19 Jan 2021 14:51:40 +0000</h3>
+                </div>
+                <div>
+                    '\n' +
+                    "<p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>14:51</var>
+                            UTC</small><br><strong>Resolved</strong> - This incident has been resolved.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>14:50</var>
+                            UTC</small><br><strong>Update</strong> - Pull Requests is operating normally.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>14:50</var>
+                            UTC</small><br><strong>Update</strong> - GitHub Packages is operating normally.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>14:49</var>
+                            UTC</small><br><strong>Update</strong> - Issues is operating normally.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>14:11</var>
+                            UTC</small><br><strong>Update</strong> - Pull Requests is experiencing degraded performance.
+                        We are still investigating and will provide an update when we have one.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>13:50</var>
+                            UTC</small><br><strong>Update</strong> - GitHub Packages is experiencing degraded
+                        performance. We are continuing to investigate.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>12:06</var>
+                            UTC</small><br><strong>Update</strong> - GitHub Actions is experiencing degraded
+                        performance. We are continuing to investigate.</p>
+                    <p><small>Jan <var data-var='date'>19</var>, <var data-var='time'>11:36</var>
+                            UTC</small><br><strong>Investigating</strong> - We are investigating reports of degraded
+                        performance for Issues.</p> "
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+function displayNotification() {
+  if (Notification.permission == 'granted') {
+    navigator.serviceWorker.getRegistration().then(function(reg) {
+      var options = {
+        body: 'Here is a notification body!',
+        icon: 'images/example.png',
+        vibrate: [100, 50, 100],
+        data: {
+          dateOfArrival: Date.now(),
+          primaryKey: 1
+        }
+      };
+      reg.showNotification('Hello world!', options);
+    });
+  }
+}
+    </script>
+</body>
+
+</html>
